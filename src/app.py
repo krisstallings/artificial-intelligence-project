@@ -3,7 +3,7 @@ from elevenlabs.client import ElevenLabs
 
 # access the ElevenLabs api requires setting up an api key
 client = ElevenLabs(
-  api_key="",
+  api_key="sk_748ca7a2276e16c5f5f11874debbcbfc1c31a0fd20b3ac66",
 )
 
 # function to provide option to create speech from text file
@@ -64,7 +64,7 @@ def save_speech(speech_data, file_name):
     except Exception as e:
         print(f"Error saving speech: {e}")
 
-# Main Program to run text to speech AI program
+# main program to run text to speech AI program
 def main():
     print("This program will accept text files or cli input to return generated speech audio. ")
     print("Choose an input option:")
