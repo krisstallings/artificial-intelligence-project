@@ -3,7 +3,7 @@ from elevenlabs.client import ElevenLabs
 
 # access the ElevenLabs api requires setting up an api key
 client = ElevenLabs(
-  api_key="sk_748ca7a2276e16c5f5f11874debbcbfc1c31a0fd20b3ac66",
+  api_key="",
 )
 
 # function to provide option to create speech from text file
