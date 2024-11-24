@@ -66,12 +66,12 @@ def save_speech(speech_data, file_name):
 
 # Main Program to run text to speech AI program
 def main():
-    print("This program will accept text files or cli input to return generated speech audio: ")
+    print("This program will accept text files or cli input to return generated speech audio. ")
     print("Choose an input option:")
-    print("1. Enter text directly")
+    print("1. Enter text directly in console")
     print("2. Load text from a file")
     
-    user_selection = input("Enter option 1 or 2): ")
+    user_selection = input("Enter 1 or 2: ")
     
     if user_selection == "1":
         text_input = input("Enter the text to generate speech audio: ")
