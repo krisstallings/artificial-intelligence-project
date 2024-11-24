@@ -1,3 +1,13 @@
+# Project Overview
+
+This is a group project for Fall 2024 Artificial Intelligence (CPSC-4370-48F) course creating an AI Text Reader with the following group members. 
+
+- Brittany Cooper - L20284115
+
+- Jaylon Pham - L20572785
+
+- Kristy Stallings - L20494128
+
 # Setup Instructions
 
 ## Prerequisites
@@ -29,10 +39,11 @@ https://www.wikihow.com/Install-FFmpeg-on-Windows
    ```bash
    pip install -r requirements.txt
 ---
-# Create api key in elevenlabs
+## Create api key in elevenlabs
 - need to access [elevenlabs](https://elevenlabs.io/app/settings/api-keys) to generate api key
 - add api key in `src/app.py` for variable `api_key`
 ---
+
 # Run program
 
 - run program on MacOS
