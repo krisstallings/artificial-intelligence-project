@@ -58,7 +58,8 @@ https://www.wikihow.com/Install-FFmpeg-on-Windows
 # Current Features
 - supports text input for speech output
 - supports file input for speech output
-- saves generated speech files
 - supports multiple languages
 - supports mulitple speaking voices
-
+- plays generated audio
+- saves generated speech files
+- plays generated speech file for testing
