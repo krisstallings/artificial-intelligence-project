@@ -67,15 +67,15 @@ def voice_options():
     for key, (voice, description) in voices.items():
         print(f"{key}. {voice} - {description}")
 
-    choice = input("\nEnter the number corresponding to your choice: ")
+    choice = input("\nEnter the number for your voice choice: ")
     
     if choice in voices:
         selected_voice = voices[choice][0]
         print(f"You selected: {selected_voice}\n")
         return selected_voice
     else:
-        print("Invalid selection! Defaulting to Brian.\n")
-        return "Brian"
+        print("Invalid selection! Defaulting to Chris.\n")
+        return "Chris"
 
 # Function to play audio from a file using system-specific options
 def play_audio_from_file(file_name):
