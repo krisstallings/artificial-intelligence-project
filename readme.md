@@ -55,10 +55,10 @@ https://www.wikihow.com/Install-FFmpeg-on-Windows
 
 - Input selection for entering text or file to generate speech
 
-# Feature work
+# Current Features
 - supports text input for speech output
 - supports file input for speech output
-- saves speech files
+- saves generated speech files
 - supports multiple languages
-- supports mulitple speaking styles and accents
+- supports mulitple speaking voices
 
