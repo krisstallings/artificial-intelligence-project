@@ -54,6 +54,20 @@ https://www.wikihow.com/Install-FFmpeg-on-Windows
    python src/app.py
 
 - Input selection for entering text or file to generate speech
+   ```bash
+      Choose an input option:
+      1. Enter text directly in console
+      2. Load text from a file
+
+- Input selection for voice options
+   ```bash
+      Please select a voice to use for generating the speech:
+      1. Chris - Conversational, American, Casual, Male
+      2. Callum - Transatlantic, Intense, Characters, Male
+      3. Matilda - Narration, American, Friendly, Female
+      4. Alice - British, Confident, News, Female
+      5. Aria - American, Expressive, Social Media, Female
+      6. George - Narration, British, Warm, Male
 
 # Current Features
 - supports text input for speech output
