@@ -1,1 +1,2 @@
-this is a test.
+this is a test for audio from file.
+Hello! 你好! Hola! नमस्ते! Bonjour! こんにちは! مرحبا! 안녕하세요! Ciao! Cześć! Привіт! வணக்கம்!
