@@ -3,12 +3,12 @@ from elevenlabs.client import ElevenLabs
 import os
 import platform
 
-# Access the ElevenLabs API requires setting up an API key
+# Access the ElevenLabs API with API key
 client = ElevenLabs(
   api_key="",
 )
 
-# Function to provide option to create speech from text file
+# Function to create speech from text file
 def speech_from_text_file(file_path):
     """
     This can be used to provide a text file for generating the speech.
@@ -47,6 +47,7 @@ def create_speech(text, voice="Rachel", model="eleven_multilingual_v2", settings
         stream=True 
     )
 
+# Function to select voice for speech
 def voice_options():
     """
     Allow the user to select a voice for speech.
@@ -77,7 +78,7 @@ def voice_options():
         print("Invalid selection! Defaulting to Chris.\n")
         return "Chris"
 
-# Function to play audio from a file using system-specific options
+# Function to play audio from a file
 def play_audio_from_file(file_name):
     """
     Play audio file using system-specific command options.
@@ -98,15 +99,15 @@ def play_audio_from_file(file_name):
     except Exception as e:
         print(f"Error playing the audio from file: {e}")
 
-# Main program to run text to speech AI program
+# Main program to run text to speech AI
 def main():
     print("This program will accept text files or CLI input to return generated speech audio.")
     print("Choose an input option:")
     print("1. Enter text directly in console")
     print("2. Load text from a file")
     
+     # User chooses text input or file
     user_selection = input("Enter 1 or 2: ")
-    
     if user_selection == "1":
         text_input = input("Enter the text to generate speech audio: ")
     elif user_selection == "2":
@@ -118,22 +119,22 @@ def main():
         print("Invalid user selection! Exiting the program.")
         return
 
-    # Allow the user to select a voice
+    # User chooses the voice for speech
     user_voice_selection = voice_options()
 
-    # Create audio for the user from generated speech
+    # Create speech audio for the user from text and play the audio
     print("Creating the speech audio for the text.")
     audio = create_speech(text_input, voice=user_voice_selection, model="eleven_multilingual_v2")
     print("Playing the created audio from text.")
     play(audio)
 
-    # Save the audio to a local file
+    # Save the speech audio to a local file
     file_name = "audio.mp3"
     audio = create_speech(text_input, voice=user_voice_selection, model="eleven_multilingual_v2")
     save(audio, file_name)
     print(f"Audio has been created and saved as {file_name}.")
 
-    # Play the saved audio file
+    # Play the saved speech audio file
     print(f"Playing audio from the saved file {file_name}.")
     play_audio_from_file(file_name)
 
