@@ -1,15 +1,17 @@
-from elevenlabs import play
+from elevenlabs import play, save
 from elevenlabs.client import ElevenLabs
+import os
+import platform
 
-# access the ElevenLabs api requires setting up an api key
+# Access the ElevenLabs API requires setting up an API key
 client = ElevenLabs(
   api_key="",
 )
 
-# function to provide option to create speech from text file
+# Function to provide option to create speech from text file
 def speech_from_text_file(file_path):
     """
-    This can be used to provide text file for generating the speech.
+    This can be used to provide a text file for generating the speech.
 
     Args:
         file_path (str): Path to the text file.
@@ -24,7 +26,7 @@ def speech_from_text_file(file_path):
         print(f"Error: The file '{file_path}' was not found.")
         return None
 
-# function to create speech from the text
+# Function to create speech from the text
 def create_speech(text, voice="Rachel", model="eleven_multilingual_v2", settings=None):
     """
     Generate speech audio from text.
@@ -36,37 +38,39 @@ def create_speech(text, voice="Rachel", model="eleven_multilingual_v2", settings
         settings (dict): Optional settings for speed, pitch, and volume.
 
     Returns:
-        Audio of the provided text.
+        Audio data of the provided text.
     """
     return client.generate(
         text=text,
         voice=voice,
         model=model,
+        stream=True 
     )
 
-# function to save speech created to file
-def save_speech(speech_data, file_name):
+# Function to play audio from a file using system-specific options
+def play_audio_from_file(file_name):
     """
-    Save speech data created to a file.
+    Play audio file using system-specific command options.
 
     Args:
-        speech_data (bytes): Binary audio data.
-        file_name (str): Name to save the audio file.
+        file_name (str): Name of the audio file.
     """
     try:
-        with open(file_name, "wb") as file:
-            if hasattr(speech_data, "__iter__") and not isinstance(speech_data, (bytes, bytearray)):
-                for chunk in speech_data:
-                    file.write(chunk)
-            else:
-                file.write(speech_data)
-        print(f"Speech audio generated has been saved to '{file_name}'.")
+        system_platform = platform.system()
+        if system_platform == "Darwin":
+            os.system(f"afplay {file_name}")
+        elif system_platform == "Linux":
+            os.system(f"mpg123 {file_name}")
+        elif system_platform == "Windows":
+            os.system(f'start {file_name}')
+        else:
+            print(f"Unsupported OS: {system_platform}")
     except Exception as e:
-        print(f"Error saving speech: {e}")
+        print(f"Error playing the audio from file: {e}")
 
-# main program to run text to speech AI program
+# Main program to run text to speech AI program
 def main():
-    print("This program will accept text files or cli input to return generated speech audio. ")
+    print("This program will accept text files or CLI input to return generated speech audio.")
     print("Choose an input option:")
     print("1. Enter text directly in console")
     print("2. Load text from a file")
@@ -84,16 +88,21 @@ def main():
         print("Invalid user selection! Exiting the program.")
         return
 
-    # create the audio for the user from generated speech
+    # Create audio for the user from generated speech
     print("Creating the speech audio for the text.")
     audio = create_speech(text_input, voice="Brian", model="eleven_multilingual_v2")
-
-    # play the audio for the user
+    print("Playing the created audio from text.")
     play(audio)
 
-    # output the audio to a local file as an mp3
-    save_speech(audio, file_name="audio.mp3")
-    print("Audio has been created, played, and saved as 'audio.mp3'.")
+    # Save the audio to a local file
+    file_name = "audio.mp3"
+    audio = create_speech(text_input, voice="Brian", model="eleven_multilingual_v2")
+    save(audio, file_name)
+    print(f"Audio has been created and saved as {file_name}.")
+
+    # Play the saved audio file
+    print(f"Playing audio from the saved file {file_name}.")
+    play_audio_from_file(file_name)
 
 
 if __name__ == "__main__":
