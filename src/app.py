@@ -5,7 +5,7 @@ import platform
 
 # Access the ElevenLabs API with API key
 client = ElevenLabs(
-  api_key="",
+  api_key="sk_748ca7a2276e16c5f5f11874debbcbfc1c31a0fd20b3ac66",
 )
 
 # Function to create speech from text file
